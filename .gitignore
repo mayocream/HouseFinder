@@ -1,0 +1,7 @@
+/node_modules
+/.idea
+
+/pnpm-lock.yaml
+/package-lock.json
+
+/dist

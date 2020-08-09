@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "housefinder",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch --progress",
+    "start:firefox": "web-ext run --verbose --source-dir ./dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/types": "^5.1.0",
+    "@types/jquery": "^3.5.1",
+    "css-loader": "^4.2.1",
+    "jquery": "^3.5.1",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.45",
+    "@types/react-dom": "^16.9.8",
+    "copy-webpack-plugin": "^6.0.3",
+    "source-map-loader": "^1.0.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "web-ext": "^4.3.0",
+    "webextension-polyfill-ts": "^0.19.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
