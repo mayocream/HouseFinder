@@ -5,6 +5,9 @@ import * as React from 'react'
 import $ from 'jquery'
 import { EventType, IPortEvent } from './port'
 import { ready } from './utils/observer'
+import { extractIdFromActionUrl } from './utils/extract'
+import { stor } from './stor'
+import * as _ from 'lodash'
 
 // 管道通信
 const messagePort = browser.runtime.connect(browser.runtime.id)
@@ -40,12 +43,10 @@ let listDisplay: boolean
 const listObserver = new MutationObserver((records) => {
   //console.log(records)
 })
-const listNodeHandler = () => {
+
+export const listNodeHandler = () => {
   const nodes: NodeListOf<any> = document.querySelectorAll('.card-item')
   for (const [index, node] of nodes.entries()) {
-    if (node.dataset.hfInit) {
-      continue
-    }
     node.dataset.hfInit = true
     node.onclick = null
     node.firstChild.onclick = null
@@ -55,7 +56,13 @@ const listNodeHandler = () => {
     // node = newItemNode
     // data
     const info = listData.list[index]
-    //console.log(info)
+    node.dataset.hfData = JSON.stringify(info)
+    const id = extractIdFromActionUrl(info.actionUrl)
+    if (_.includes(stor.deleteIds, id)) {
+      node.style.display = 'none'
+    } else {
+      node.style.display = 'block'
+    }
   }
 }
 
@@ -96,6 +103,10 @@ $.when($.ready).then(() => {
       // 创建 Toolbox DOM 元素
       toolboxContainer = document.createElement('div')
       toolboxContainer.className = 'toolbox-container'
+      // toolboxContainer.addEventListener('click', e => {
+      //   console.log('prevent click float', e)
+      //   e.stopPropagation()
+      // })
       itemNode.dataset.hfToolboxLoaded = true
       itemNode.appendChild(toolboxContainer)
     }

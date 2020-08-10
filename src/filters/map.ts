@@ -1,5 +1,8 @@
 import { browser } from 'webextension-polyfill-ts'
 import { EventType, IPortEvent, Port } from '../port'
+import { getDeleteIds, stor } from '../stor'
+import { extractIdFromActionUrl } from '../utils/extract'
+import * as _ from 'lodash'
 
 export const mapFilter = (details) => {
     if (details.method === 'OPTIONS') {
@@ -29,7 +32,12 @@ export const mapFilter = (details) => {
         }
         let str = decoder.decode(combinedArray)
 
-        let jsonData = JSON.parse(str)
+        let jsonData: any = JSON.parse(str)
+
+        jsonData.data.list = jsonData?.data?.list?.filter(a => {
+            const id = extractIdFromActionUrl(a.actionUrl)
+            return !_.includes(stor.deleteIds, id)
+        })
 
         // 事件处理
         const e: IPortEvent<any> = {

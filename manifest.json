@@ -25,5 +25,11 @@
     "webRequestBlocking",
     "*://*.lianjia.com/*",
     "*://*.ke.com/*"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "house.finder@shoujo.dev",
+      "strict_min_version": "42.0"
+    }
+  }
 }
