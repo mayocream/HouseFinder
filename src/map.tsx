@@ -104,10 +104,10 @@ $.when($.ready).then(() => {
       // 创建 Toolbox DOM 元素
       toolboxContainer = document.createElement('div')
       toolboxContainer.className = 'toolbox-container'
-      // toolboxContainer.addEventListener('click', e => {
-      //   console.log('prevent click float', e)
-      //   e.stopPropagation()
-      // })
+      toolboxContainer.addEventListener('click', e => {
+        console.log('阻止click事件冒泡', e)
+        e.stopPropagation()
+      })
       itemNode.dataset.hfToolboxLoaded = true
       itemNode.appendChild(toolboxContainer)
     }
