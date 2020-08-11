@@ -21,6 +21,10 @@ export const getDeleteIds = async (): Promise<string[]> => {
     return ids
 }
 
+getDeleteIds().then(ids => {
+  console.info('deletedIds', ids)
+})
+
 export const addDeleteIds = async (id: string) => {
     let deleteIds = await getDeleteIds()
     deleteIds.push(id)
