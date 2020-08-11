@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "HouseFinder",
-  "version": "0.1",
+  "version": "0.12",
   "description": "找房小能手。",
   "author": "Mayo Cream",
   "content_scripts": [
