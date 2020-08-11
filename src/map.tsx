@@ -8,6 +8,7 @@ import { ready } from './utils/observer'
 import { extractIdFromActionUrl } from './utils/extract'
 import { stor } from './stor'
 import * as _ from 'lodash'
+import './style/list.less'
 
 // 管道通信
 const messagePort = browser.runtime.connect(browser.runtime.id)
@@ -59,9 +60,9 @@ export const listNodeHandler = () => {
     node.dataset.hfData = JSON.stringify(info)
     const id = extractIdFromActionUrl(info.actionUrl)
     if (_.includes(stor.deleteIds, id)) {
-      node.style.display = 'none'
+      node.classList.add('hf-deleted-item')
     } else {
-      node.style.display = 'block'
+      node.classList.remove('hf-deleted-item')
     }
   }
 }
