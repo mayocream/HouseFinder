@@ -10,15 +10,15 @@
         "*://map.lianjia.com/map/*"
       ],
       "js": [
-        "vendors~background~map.bundle.js",
-        "vendors~map.bundle.js",
+        "vendors-background-map.bundle.js",
+        "vendors-map.bundle.js",
         "map.bundle.js"
       ]
     }
   ],
   "background": {
     "scripts": [
-      "vendors~background~map.bundle.js",
+      "vendors-background-map.bundle.js",
       "background.bundle.js"
     ]
   },
