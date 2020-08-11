@@ -10,12 +10,15 @@
         "*://map.lianjia.com/map/*"
       ],
       "js": [
+        "vendors~background~map.bundle.js",
+        "vendors~map.bundle.js",
         "map.bundle.js"
       ]
     }
   ],
   "background": {
     "scripts": [
+      "vendors~background~map.bundle.js",
       "background.bundle.js"
     ]
   },
@@ -28,8 +31,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "house.finder@shoujo.dev",
-      "strict_min_version": "42.0"
+      "id": "house.finder@shoujo.dev"
     }
   }
 }

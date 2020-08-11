@@ -2,3 +2,6 @@ root = true
 
 [*.tsx]
 indent_size = 2
+
+[*.{js,ts}]
+indent_size = 2
